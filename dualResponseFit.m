@@ -56,11 +56,7 @@ if (choice == 1)
     
     xVar = '[IL6]';
     yVar = '[IFN-g]';
-    
-%    x = d1;
-%    y = d2;
-%    z = dualdr;
-    
+        
 xdata = d1;
 ydata= d2;
 zdata = dualdr;
@@ -122,14 +118,10 @@ elseif (choice == 3)
     
 end
 
-%sf = fit([xdata,ydata],zdata,'poly23'); 
-%plot(sf,[xdata,ydata],zdata); %works...
-
-
 dualFun = @(a,b,c,d,x,y) a*atan(b*x) + c*atan(d*y);
 
 %[sf,gof] = fit([xdata,ydata],zdata,dualFun,'StartPoint', [1, 1, 1, 1]);
-[sf,gof] = fit([xdata,ydata],zdata,dualFun)%,'StartPoint', [1, 1, 1, 1]);
+[sf,gof] = fit([xdata,ydata],zdata,dualFun);%,'StartPoint', [1, 1, 1, 1]);
 plot(sf,[xdata,ydata],zdata);
 axis([[0 inf, 0 inf] 0 inf]);
 

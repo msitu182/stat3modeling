@@ -1,11 +1,12 @@
+clc
 %% file input
 dataFull = readtable('dt-well_averages-log.txt');
 
 %% arctan fit
-%disp('Select 1 - STAT1 Avg Nuc-Cyt / 2 - STAT3 Avg Nuc-Cyt');
+disp('Modeling the response of two cytokines in the STAT1/STAT3 pathway');
 stat1_stat3 = 0;
 while (stat1_stat3 ~= 1 && stat1_stat3 ~= 2)
-    stat1_stat3 = input('Select 1 - STAT1 Avg Nuc-Cyt / 2 - STAT3 Avg Nuc-Cyt\n');
+    stat1_stat3 = input('Select "1" for STAT1 Avg Nuc-Cyt or "2" for STAT3 Avg Nuc-Cyt\n');
     
 end
 
@@ -30,6 +31,7 @@ elseif stat1_stat3 == 2
 end
 
 while (maxTimePosition < 1 || maxTimePosition > 6)
+    disp('Response over time for cytokines IL6, IFN-g, and OSM');
     maxTimePosition = input('Select a time for response:\n1 - 8 min\n2 - 15 min\n3 - 30 min\n4 - 45 min\n5 - 60 min\n6 - 120 min\n');
     
     disp('Arctan Fit');
@@ -91,7 +93,7 @@ while (maxTimePosition < 1 || maxTimePosition > 6)
     disp(' ');
     yn = 2;
     while (yn < 0 || yn > 1)
-        yn = input('Select another time? (0 - no / 1 - yes)\n');
+        yn = input('Select another time? (Enter "0" for NO or "1" for YES)\n');
     end
     
     if (yn == 0)
@@ -112,7 +114,7 @@ while (yn < 0 || yn > 1)
         predictFit_stat1(dataFull,dose1,doseResponse1,dose2,doseResponse2,dose3,doseResponse3,zeroPoint,arctanSol1,arctanSol2,arctanSol3);
     end
     disp(' ');
-    yn = input('View a different model for this time point? (0 - no / 1 - yes)\n');
+    yn = input('View a different model for this time point? (Enter "0" for NO or "1" for YES)\n');
     if (yn == 0)
         break;
     elseif (yn == 1)

@@ -71,7 +71,7 @@ doseResponse2 = doseResponse2 - zeroPoint;
 doseResponse3 = doseResponse3 - zeroPoint;
 
 
-%set negative values to 0 minimum?
+%set negative values to 0 minimum
 for i = 1:4
    if doseResponse1(i) < 0 
        doseResponse1(i) = 0;

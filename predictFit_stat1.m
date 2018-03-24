@@ -152,7 +152,7 @@ ylabel(yL);
 zlabel('Response (STAT1 Avg Nuc-Cyt)');
 %title('Predict Fit');
 
-%% rsquared
+%% calculate rsquared
 
 cf = coeffvalues(sf);
 disp(' ');

@@ -22,7 +22,7 @@ doseResponse23 = [dataFull(selectDose(0,1,1),6); dataFull(selectDose(0,1,2),6); 
     dataFull(selectDose(0,3,1),6); dataFull(selectDose(0,3,2),6); dataFull(selectDose(0,3,3),6)];
 doseResponse23 = doseResponse23 - zeroPoint;
 
-%set negative values to 0 minimum?
+%set negative values to 0 minimum
 [sizeDualData,~] = size(doseResponse12);
 for i = 1:sizeDualData
    if doseResponse12(i) < 0 
